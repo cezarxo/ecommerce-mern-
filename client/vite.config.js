@@ -14,5 +14,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    rollupOptions: {
+      external: ['@rollup/rollup-linux-x64-gnu'],
+    }
   }
 });
