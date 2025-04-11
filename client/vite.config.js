@@ -11,11 +11,17 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    cssCodeSplit: false,
+    target: 'esnext',
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks: undefined
       }
+    }
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'esnext'
     }
   }
 });
