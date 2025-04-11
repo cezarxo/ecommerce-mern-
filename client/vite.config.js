@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path"
-import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -12,10 +11,11 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false,
+    cssCodeSplit: false,
     rollupOptions: {
-      external: ['@rollup/rollup-linux-x64-gnu'],
+      output: {
+        manualChunks: undefined
+      }
     }
   }
 });
